@@ -41,7 +41,27 @@ def xep_loai(diem):
 
 df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 st.dataframe(df)
-# 5. Tạo danh sách xổ xuống chọn sinh viên
+
+# 5. Thống kê điểm tổng kết của lớp
+diem_trung_binh = df["Tong_ket"].mean()
+sv_cao_nhat = df.loc[df["Tong_ket"].idxmax()]
+sv_thap_nhat = df.loc[df["Tong_ket"].idxmin()]
+so_sv_dat = (df["Tong_ket"] >= 5).sum()
+print(f"Điểm tổng kết trung bình của lớp: {diem_trung_binh:.2f}")
+print(f"Sinh viên cao nhất: {sv_cao_nhat['Họ và tên']} - {sv_cao_nhat['Tong_ket']:.2f} điểm")
+print(f"Sinh viên thấp nhất: {sv_thap_nhat['Họ và tên']} - {sv_thap_nhat['Tong_ket']:.2f} điểm")
+print(f"Số sinh viên đạt (>= 5): {so_sv_dat}")
+# 6. Vẽ biểu đồ cột
+plt.figure(figsize=(10, 5))
+plt.bar(df["Họ và tên"], df["Tong_ket"])
+plt.title("Điểm tổng kết của 10 sinh viên")
+plt.xlabel("Họ và tên sinh viên")
+plt.ylabel("Điểm tổng kết")
+plt.xticks(rotation=45)
+plt.ylim(0, 10)
+plt.tight_layout()
+plt.show()
+# 7. Tạo danh sách xổ xuống chọn sinh viên
 st.subheader("Tra cứu thông tin cá nhân sinh viên")
 selected_student = st.selectbox("Chọn tên sinh viên cần xem:", df["Họ và tên"])
 
@@ -53,26 +73,6 @@ st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
 st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
 st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
 st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
-# 6. Thống kê điểm tổng kết của lớp
-diem_trung_binh = df["Tong_ket"].mean()
-sv_cao_nhat = df.loc[df["Tong_ket"].idxmax()]
-sv_thap_nhat = df.loc[df["Tong_ket"].idxmin()]
-so_sv_dat = (df["Tong_ket"] >= 5).sum()
-print(f"Điểm tổng kết trung bình của lớp: {diem_trung_binh:.2f}")
-print(f"Sinh viên cao nhất: {sv_cao_nhat['Họ và tên']} - {sv_cao_nhat['Tong_ket']:.2f} điểm")
-print(f"Sinh viên thấp nhất: {sv_thap_nhat['Họ và tên']} - {sv_thap_nhat['Tong_ket']:.2f} điểm")
-print(f"Số sinh viên đạt (>= 5): {so_sv_dat}")
-# 7. Vẽ biểu đồ cột
-plt.figure(figsize=(10, 5))
-plt.bar(df["Họ và tên"], df["Tong_ket"])
-plt.title("Điểm tổng kết của 10 sinh viên")
-plt.xlabel("Họ và tên sinh viên")
-plt.ylabel("Điểm tổng kết")
-plt.xticks(rotation=45)
-plt.ylim(0, 10)
-plt.tight_layout()
-plt.show()
-st.pyplot(fig)
 # 8. Hiển thị họ tên và MSSV ở cuối trang Web App với kích thước chữ nhỏ (Yêu cầu cuối cùng)
 st.markdown("---")
 st.markdown(
