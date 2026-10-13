@@ -44,7 +44,7 @@ df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 st.dataframe(df)
 
 # 5. Tạo danh sách xổ xuống chọn sinh viên
-selectbox = widgets.Dropdown(
+st.selectbox(
     options=df["Họ và tên"].tolist(),
     description="Sinh viên:",
     style={"description_width": "initial"},
