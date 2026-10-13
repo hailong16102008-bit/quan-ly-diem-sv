@@ -72,6 +72,7 @@ plt.xticks(rotation=45)
 plt.ylim(0, 10)
 plt.tight_layout()
 plt.show()
+st.pyplot(fig)
 # 8. Hiển thị họ tên và MSSV ở cuối trang Web App với kích thước chữ nhỏ (Yêu cầu cuối cùng)
 st.markdown("---")
 st.markdown(
