@@ -64,14 +64,18 @@ st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
 st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
 st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
 # 7. Vẽ biểu đồ cột
-plt.figure(figsize=(10, 5))
-plt.bar(df["Họ và tên"], df["Tong_ket"])
-plt.title("Điểm tổng kết của 10 sinh viên")
-plt.xlabel("Họ và tên sinh viên")
-plt.ylabel("Điểm tổng kết")
-plt.xticks(rotation=45)
-plt.ylim(0, 10)
-plt.tight_layout()
+st.subheader("Biểu đồ điểm tổng kết của 10 sinh viên")
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.bar(df["Họ and tên"], df["Tong_ket"], color='skyblue', edgecolor='navy')
+ax.set_xlabel("Họ và tên sinh viên")
+ax.set_ylabel("Điểm tổng kết")
+ax.set_ylim(0, 10)
+plt.xticks(rotation=45, ha='right')
+
+# Gắn điểm số trực tiếp lên trên mỗi cột cho đẹp mắt
+for i, v in enumerate(df["Tong_ket"]):
+    ax.text(i, v + 0.1, str(v), ha='center', va='bottom', fontsize=9)
+
 st.pyplot(fig)
 
 # 8. Hiển thị họ tên và MSSV ở cuối trang Web App với kích thước chữ nhỏ (Yêu cầu cuối cùng)
