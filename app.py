@@ -53,7 +53,7 @@ st.write(f"- **Họ và tên:** {student_info['Họ và tên']}")
 st.write(f"- **Chuyên cần:** {student_info['Điểm chuyên cần']}")
 st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
 st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
-st.write(f"- **Điểm tổng kết:** **{student_info['Tổng kết']}**")
+st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
 st.write(f"- **Xếp loại:** **{student_info['Xếp loại']}**")
 
 # 6. Thống kê điểm tổng kết của lớp
