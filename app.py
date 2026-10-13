@@ -66,7 +66,7 @@ st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
 # 7. Vẽ biểu đồ cột
 st.subheader("Biểu đồ điểm tổng kết của 10 sinh viên")
 fig, ax = plt.subplots(figsize=(10, 5))
-ax.bar(df["Họ và tên"], df["Tong_ket"], color='skyblue', edgecolor='navy')
+ax.bar(df["Họ và tên"], df["Tong_ket"], color='skyblue')
 ax.set_xlabel("Họ và tên sinh viên")
 ax.set_ylabel("Điểm tổng kết")
 ax.set_ylim(0, 10)
