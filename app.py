@@ -41,10 +41,7 @@ def xep_loai(diem):
         return "Yếu"
 
 df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
-
 st.dataframe(df)
-
-from IPython.display import display, clear_output
 
 # 5. Tạo danh sách xổ xuống chọn sinh viên
 selectbox = widgets.Dropdown(
