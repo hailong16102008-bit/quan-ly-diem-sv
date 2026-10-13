@@ -103,4 +103,4 @@ plt.show()
 st.markdown("---")
 st.markdown(
     "<p style='text-align: center; color: gray; font-size: 11px;'>Họ và tên: [Nguyễn Hải Long] - MSSV: [068208011020]</p>",
-    unsafe_allow_html=True
+    unsafe_allow_html=True)
