@@ -50,9 +50,9 @@ selected_student = st.selectbox("Chọn tên sinh viên cần xem:", df["Họ v�
 student_info = df[df["Họ và tên"] == selected_student].iloc[0]
 
 st.write(f"- **Họ và tên:** {student_info['Họ và tên']}")
-st.write(f"- **Chuyên cần:** {student_info['Chuyên cần']}")
-st.write(f"- **Giữa kỳ:** {student_info['Giữa kỳ']}")
-st.write(f"- **Cuối kỳ:** {student_info['Cuối kỳ']}")
+st.write(f"- **Chuyên cần:** {student_info['Điểm chuyên cần']}")
+st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
+st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
 st.write(f"- **Điểm tổng kết:** **{student_info['Tổng kết']}**")
 st.write(f"- **Xếp loại:** **{student_info['Xếp loại']}**")
 
