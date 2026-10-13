@@ -29,7 +29,6 @@ df["Tong_ket"] = (
     + 0.5 * df["Điểm cuối kỳ"]
 ).round(2)
 
-display(df)
 # 4. Xếp loại sinh viên
 def xep_loai(diem):
     if diem >= 8.5:
