@@ -44,29 +44,17 @@ df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 st.dataframe(df)
 
 # 5. Tạo danh sách xổ xuống chọn sinh viên
-st.selectbox(
-    options=df["Họ và tên"].tolist(),
-    description="Sinh viên:",
-    style={"description_width": "initial"},
-    layout=widgets.Layout(width="400px"))
-output = widgets.Output()
-def hien_thi_sinh_vien(change=None):
-    with output:
-        clear_output(wait=True)
-        sv = df[df["Họ và tên"] == selectbox.value].iloc[0]
-        print("===== THÔNG TIN SINH VIÊN =====")
-        print("Họ và tên:", sv["Họ và tên"])
-        print("Điểm chuyên cần:", sv["Điểm chuyên cần"])
-        print("Điểm giữa kỳ:", sv["Điểm giữa kỳ"])
-        print("Điểm cuối kỳ:", sv["Điểm cuối kỳ"])
-        print("Điểm tổng kết:", sv["Tong_ket"])
-        print("Xếp loại:", sv["Xep_loai"])
+st.subheader("Tra cứu thông tin cá nhân sinh viên")
+selected_student = st.selectbox("Chọn tên sinh viên cần xem:", df["Họ và tên"])
 
-selectbox.observe(hien_thi_sinh_vien, names="value")
+student_info = df[df["Họ và tên"] == selected_student].iloc[0]
 
-display(selectbox, output)
-
-hien_thi_sinh_vien()
+st.write(f"- **Họ và tên:** {student_info['Họ và tên']}")
+st.write(f"- **Chuyên cần:** {student_info['Chuyên cần']}")
+st.write(f"- **Giữa kỳ:** {student_info['Giữa kỳ']}")
+st.write(f"- **Cuối kỳ:** {student_info['Cuối kỳ']}")
+st.write(f"- **Điểm tổng kết:** **{student_info['Tổng kết']}**")
+st.write(f"- **Xếp loại:** **{student_info['Xếp loại']}**")
 
 # 6. Thống kê điểm tổng kết của lớp
 diem_trung_binh = df["Tong_ket"].mean()
