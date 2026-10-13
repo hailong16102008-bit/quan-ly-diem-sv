@@ -54,7 +54,7 @@ st.write(f"- **Chuyên cần:** {student_info['Điểm chuyên cần']}")
 st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
 st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
 st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
-st.write(f"- **Xếp loại:** **{student_info['xep_loai']}**")
+st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
 
 # 6. Thống kê điểm tổng kết của lớp
 diem_trung_binh = df["Tong_ket"].mean()
