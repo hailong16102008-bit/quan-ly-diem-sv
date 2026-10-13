@@ -51,17 +51,7 @@ print(f"Điểm tổng kết trung bình của lớp: {diem_trung_binh:.2f}")
 print(f"Sinh viên cao nhất: {sv_cao_nhat['Họ và tên']} - {sv_cao_nhat['Tong_ket']:.2f} điểm")
 print(f"Sinh viên thấp nhất: {sv_thap_nhat['Họ và tên']} - {sv_thap_nhat['Tong_ket']:.2f} điểm")
 print(f"Số sinh viên đạt (>= 5): {so_sv_dat}")
-# 6. Vẽ biểu đồ cột
-plt.figure(figsize=(10, 5))
-plt.bar(df["Họ và tên"], df["Tong_ket"])
-plt.title("Điểm tổng kết của 10 sinh viên")
-plt.xlabel("Họ và tên sinh viên")
-plt.ylabel("Điểm tổng kết")
-plt.xticks(rotation=45)
-plt.ylim(0, 10)
-plt.tight_layout()
-plt.show()
-# 7. Tạo danh sách xổ xuống chọn sinh viên
+# 6. Tạo danh sách xổ xuống chọn sinh viên
 st.subheader("Tra cứu thông tin cá nhân sinh viên")
 selected_student = st.selectbox("Chọn tên sinh viên cần xem:", df["Họ và tên"])
 
@@ -73,7 +63,29 @@ st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
 st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
 st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
 st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
-# 8. Hiển thị họ tên và MSSV ở cuối trang Web App với kích thước chữ nhỏ (Yêu cầu cuối cùng)
+# 7. Vẽ biểu đồ cột
+plt.figure(figsize=(10, 5))
+plt.bar(df["Họ và tên"], df["Tong_ket"])
+plt.title("Điểm tổng kết của 10 sinh viên")
+plt.xlabel("Họ và tên sinh viên")
+plt.ylabel("Điểm tổng kết")
+plt.xticks(rotation=45)
+plt.ylim(0, 10)
+plt.tight_layout()
+plt.show()
+# 8. Tạo danh sách xổ xuống chọn sinh viên
+st.subheader("Tra cứu thông tin cá nhân sinh viên")
+selected_student = st.selectbox("Chọn tên sinh viên cần xem:", df["Họ và tên"])
+
+student_info = df[df["Họ và tên"] == selected_student].iloc[0]
+
+st.write(f"- **Họ và tên:** {student_info['Họ và tên']}")
+st.write(f"- **Chuyên cần:** {student_info['Điểm chuyên cần']}")
+st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
+st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
+st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
+st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
+# 9. Hiển thị họ tên và MSSV ở cuối trang Web App với kích thước chữ nhỏ (Yêu cầu cuối cùng)
 st.markdown("---")
 st.markdown(
     "<p style='text-align: center; color: gray; font-size: 11px;'>Họ và tên: [Nguyễn Hải Long] - MSSV: [068208011020]</p>",
