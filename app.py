@@ -63,12 +63,8 @@ print(f"Sinh viên cao nhất: {sv_cao_nhat['Họ và tên']} - {sv_cao_nhat['To
 print(f"Sinh viên thấp nhất: {sv_thap_nhat['Họ và tên']} - {sv_thap_nhat['Tong_ket']:.2f} điểm")
 print(f"Số sinh viên đạt (>= 5): {so_sv_dat}")
 # 7. Vẽ biểu đồ cột
-import pandas as pd
-import matplotlib.pyplot as plt
-
 plt.figure(figsize=(10, 5))
 plt.bar(df["Họ và tên"], df["Tong_ket"])
-
 plt.title("Điểm tổng kết của 10 sinh viên")
 plt.xlabel("Họ và tên sinh viên")
 plt.ylabel("Điểm tổng kết")
