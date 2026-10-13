@@ -43,7 +43,7 @@ def xep_loai(diem):
 df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 
 st.dataframe(df)
-import ipywidgets as widgets
+
 from IPython.display import display, clear_output
 
 # 5. Tạo danh sách xổ xuống chọn sinh viên
