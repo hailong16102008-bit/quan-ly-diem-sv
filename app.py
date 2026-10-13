@@ -21,8 +21,7 @@ data = {
     "Điểm cuối kỳ":   [8.5, 8.0, 9.5, 6.0, 7.5, 4.5, 7.0, 4.0, 7.0, 8.5]}
 
 df = pd.DataFrame(data)
-display(df)
-
+st.dataframe(df)
 # 3. Tính điểm tổng kết
 df["Tong_ket"] = (
     0.2 * df["Điểm chuyên cần"]
@@ -31,7 +30,6 @@ df["Tong_ket"] = (
 ).round(2)
 
 display(df)
-
 # 4. Xếp loại sinh viên
 def xep_loai(diem):
     if diem >= 8.5:
@@ -45,7 +43,7 @@ def xep_loai(diem):
 
 df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 
-display(df)
+st.dataframe(df)
 import ipywidgets as widgets
 from IPython.display import display, clear_output
 
