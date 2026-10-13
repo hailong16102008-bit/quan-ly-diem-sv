@@ -28,7 +28,6 @@ df["Tong_ket"] = (
     + 0.3 * df["Điểm giữa kỳ"]
     + 0.5 * df["Điểm cuối kỳ"]
 ).round(2)
-
 # 4. Xếp loại sinh viên
 def xep_loai(diem):
     if diem >= 8.5:
@@ -42,7 +41,6 @@ def xep_loai(diem):
 
 df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 st.dataframe(df)
-
 # 5. Tạo danh sách xổ xuống chọn sinh viên
 st.subheader("Tra cứu thông tin cá nhân sinh viên")
 selected_student = st.selectbox("Chọn tên sinh viên cần xem:", df["Họ và tên"])
@@ -55,7 +53,6 @@ st.write(f"- **Giữa kỳ:** {student_info['Điểm giữa kỳ']}")
 st.write(f"- **Cuối kỳ:** {student_info['Điểm cuối kỳ']}")
 st.write(f"- **Điểm tổng kết:** **{student_info['Tong_ket']}**")
 st.write(f"- **Xếp loại:** **{student_info['Xep_loai']}**")
-
 # 6. Thống kê điểm tổng kết của lớp
 diem_trung_binh = df["Tong_ket"].mean()
 sv_cao_nhat = df.loc[df["Tong_ket"].idxmax()]
@@ -65,7 +62,6 @@ print(f"Điểm tổng kết trung bình của lớp: {diem_trung_binh:.2f}")
 print(f"Sinh viên cao nhất: {sv_cao_nhat['Họ và tên']} - {sv_cao_nhat['Tong_ket']:.2f} điểm")
 print(f"Sinh viên thấp nhất: {sv_thap_nhat['Họ và tên']} - {sv_thap_nhat['Tong_ket']:.2f} điểm")
 print(f"Số sinh viên đạt (>= 5): {so_sv_dat}")
-
 # 7. Vẽ biểu đồ cột
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -80,7 +76,6 @@ plt.xticks(rotation=45)
 plt.ylim(0, 10)
 plt.tight_layout()
 plt.show()
-
 # 8. Hiển thị họ tên và MSSV ở cuối trang Web App với kích thước chữ nhỏ (Yêu cầu cuối cùng)
 st.markdown("---")
 st.markdown(
